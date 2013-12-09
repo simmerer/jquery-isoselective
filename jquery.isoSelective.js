@@ -85,7 +85,7 @@ function commonAncestor(ident) {
 		  }
 	
 		
-        $(ulinkSelector).on('click', function()
+        $(ulinkSelector).live('click', function()
            {var thisSelectorVal = $(this).attr(uattrSelector);
             var thisCount = $(parentID).find(thistag).index(this);
 			
