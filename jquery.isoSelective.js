@@ -2,6 +2,9 @@
 // created by Alexander Buddy 'Gatsby' Jones
 // http://www.gatsbyart.com
 
+// modifications by David Simmer
+// http://simmerdesigns.com
+
 function commonAncestor(ident) {
     var parents = [];
     var minlen = Infinity;
