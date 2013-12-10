@@ -2,7 +2,7 @@
 // created by Alexander Buddy 'Gatsby' Jones
 // http://www.gatsbyart.com
 
-// modifications by David Simmer
+// update for jQuery 1.9+ by David Simmer
 // http://simmerdesigns.com
 
 function commonAncestor(ident) {
@@ -72,7 +72,7 @@ function commonAncestor(ident) {
             filterSelections[starc] = "*"
         }
 
-        $(ulinkSelector).live('click', function(){
+        $(ulinkSelector).on('click', function(){
             var thisSelectorVal = $(this).attr(uattrSelector);
             var thisCount = $(parentID).find(thistag).index(this);
             if ($(this).attr(uattrSelector) != "*"){
