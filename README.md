@@ -13,6 +13,11 @@ However, isoSelective's last release still relied on jQuery's <code>.live()</cod
 
 Fortunately, replacing `.live()` with `.on()` in one spot does the trick.
 
+Download the updated isoSelective plugin here:
+----------------------------------------------
+* [jquery.isoSelective.js](https://raw.github.com/simmerdesign/jquery-isoselective/master/jquery.isoSelective.js), 4.641 kb
+* [jquery.isoSelective.min.js](https://raw.github.com/simmerdesign/jquery-isoselective/master/jquery.isoSelective.min.js), 1.721 kb
+
 - - - -
 
 Complete documentation for using isoSelective is still available here: http://www.gatsbyart.com/plugins/isoSelective/
@@ -25,7 +30,7 @@ The basic isotope setup is something like this:
         itemSelector : '.item'
     });
     
-You'll do that first whether using isotope or isoSelective filtering.
+**You'll do that first whether using isotope or isoSelective filtering.**
     
 To enable isotope filtering you'd do something like this:
 
