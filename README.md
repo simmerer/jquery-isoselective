@@ -20,7 +20,7 @@ Download the updated isoSelective plugin here:
 
 - - - -
 
-Complete documentation for using isoSelective is still available here: http://www.gatsbyart.com/plugins/isoSelective/
+Complete documentation for using isoSelective (which doubles as am isoSelective demo) is still available here: http://www.gatsbyart.com/plugins/isoSelective/
 
 The basic isotope setup is something like this:
 
