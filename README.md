@@ -23,12 +23,14 @@ Using isoSelective filtering, it's possible to end up with all filters toggled o
 
 The default value for `preventEmpty` is `false`, which will behave as isoSelective has in the past (allowing an empty isotope container when all filters are toggled off).
 
-    $container.isoSelective({
-        linkSelector: 'a.filter',
-        attrSelector: 'data-filter',
-        activeClass: 'toggledOn',
-        preventEmpty: true // when all filters are toggled off, change filter to "*" and show all items
-    });
+```javascript
+$container.isoSelective({
+    linkSelector: 'a.filter',
+    attrSelector: 'data-filter',
+    activeClass: 'toggledOn',
+    preventEmpty: true // when all filters are toggled off, change filter to "*" and show all items
+});
+```
 
 
 
@@ -44,30 +46,33 @@ Usage
 Complete documentation for using isoSelective (which doubles as an isoSelective demo) is still available here: http://www.gatsbyart.com/plugins/isoSelective/
 
 The basic isotope setup is something like this:
-
-    $container = $('#container');
-    $container.isotope({
-        // options
-        itemSelector : '.item'
-    });
+```javascript
+$container = $('#container');
+$container.isotope({
+    // options
+    itemSelector : '.item'
+});
+```
     
 **You'll do that first whether using isotope or isoSelective filtering.**
     
 To enable isotope filtering you'd do something like this:
-
-    // set up isotope filters
-    $('a.filter').click(function(){
-        var selector = $(this).attr('data-filter');
-        $container.isotope({filter:selector});
-        return false;
-    })
+```javascript
+// set up isotope filters
+$('a.filter').click(function(){
+    var selector = $(this).attr('data-filter');
+    $container.isotope({filter:selector});
+    return false;
+});
+```
     
 If you're using isoSelective, however, you'll do something like this instead:
-
-    // set up isoSelective filters
-    $container.isoSelective({
-        linkSelector: 'a.filter',
-        attrSelector: 'data-filter',
-        activeClass: 'toggledOn',
-        preventEmpty: true
-    });
+```javascript
+// set up isoSelective filters
+$container.isoSelective({
+    linkSelector: 'a.filter',
+    attrSelector: 'data-filter',
+    activeClass: 'toggledOn',
+    preventEmpty: true
+});
+```
