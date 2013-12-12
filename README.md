@@ -5,6 +5,9 @@ An update to Gatsby's isoSelective isotope plugin for jQuery 1.9+ compatibility.
 
 - - - -
 
+Why an update?
+--------------
+
 [David DeSandro](http://desandro.com)'s lovely [isotope](http://isotope.metafizzy.co) does the job for most filtering and sorting applications, but sometimes you need to **combine filter selections** or **toggle filters**.
 
 [Alexander 'Gatsby' Jones](http://gatsbyart.com) smartly came up with [isoSelective](http://www.gatsbyart.com/plugins/isoSelective/), which accomplishes exactly that.
@@ -12,6 +15,23 @@ An update to Gatsby's isoSelective isotope plugin for jQuery 1.9+ compatibility.
 However, isoSelective's last release still relied on jQuery's `.live()` method, which was deprecated as of jQuery 1.7 and removed altogether in jQuery 1.9. If you're running jQuery 1.9 or newer, isoSelective won't work for you.
 
 Fortunately, replacing `.live()` with `.on()` in one spot does the trick.
+
+
+New feature: preventEmpty
+-------------------------
+
+Using isoSelective filtering, it's possible to end up with all filters toggled off, in which case no isotope items are visible anymore. I've added the `preventEmpty` option to allow a choice between showing an empty isotope container or making all items visible again.
+
+The default value for `preventEmpty` is `false`, which will behave as isoSelective has in the past (allowing an empty isotope container when all filters are toggled off).
+
+    $container.isoSelective({
+        linkSelector: 'a.filter',
+        attrSelector: 'data-filter',
+        activeClass: 'toggledOn',
+        preventEmpty: true // when all filters are toggled off, change filter to "*" and show all items
+    });
+
+
 
 Download the updated isoSelective plugin here:
 ----------------------------------------------
@@ -47,5 +67,6 @@ If you're using isoSelective, however, you'll do something like this instead:
     $container.isoSelective({
         linkSelector: 'a.filter',
         attrSelector: 'data-filter',
-        activeClass: 'toggledOn'
+        activeClass: 'toggledOn',
+        preventEmpty: true
     });
