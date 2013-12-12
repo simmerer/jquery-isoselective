@@ -41,14 +41,14 @@ function commonAncestor(ident) {
         return this.each(function(){
             $this = $(this);// build element specific options
             var o = $.meta ? $.extend({}, opts, $this.data()): opts;// update element styles
-            $.fn.isoSelective.initializeFiltering(o.linkSelector, o.attrSelector, o.activeClass,$this);
+            $.fn.isoSelective.initializeFiltering(o.linkSelector, o.attrSelector, o.activeClass, o.allowEmpty, $this);
         });
     };
     //
     // define and expose our format function
     //
      
-    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, ucontainerSelector){
+    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, uAllowEmpty, ucontainerSelector){
         var container = ucontainerSelector;
         var filterSelections = new Array();
         var totalCount = $(ulinkSelector).length;
@@ -110,7 +110,14 @@ function commonAncestor(ident) {
             }
             
             if (newfilterStatement == ""){
-                newfilterStatement = "#nulldiviwthoutapropername";
+                if (uAllowEmpty){
+                    // show none
+                    newfilterStatement = "#nulldiviwthoutapropername";
+                }
+                else {
+                    // reset filter to show all
+                    newfilterStatement = "*";
+                }
             }
             
             $(container).isotope( {filter: newfilterStatement});
