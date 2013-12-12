@@ -3,7 +3,6 @@ jquery-isoselective
 
 An update to Gatsby's isoSelective isotope plugin for jQuery 1.9+ compatibility.
 
-- - - -
 
 Why an update?
 --------------
@@ -38,7 +37,9 @@ Download the updated isoSelective plugin here:
 * [jquery.isoSelective.js](https://raw.github.com/simmerdesign/jquery-isoselective/master/jquery.isoSelective.js), 4.641 kb
 * [jquery.isoSelective.min.js](https://raw.github.com/simmerdesign/jquery-isoselective/master/jquery.isoSelective.min.js), 1.721 kb
 
-- - - -
+
+Usage
+-----
 
 Complete documentation for using isoSelective (which doubles as am isoSelective demo) is still available here: http://www.gatsbyart.com/plugins/isoSelective/
 
