@@ -35,7 +35,7 @@ $container.isoSelective({
 bugfix: IE8
 -----------
 
-Using the `commonAncestor` function, isoSelective automatically finds the parent element of your `linkSelector` elements. However, Internet Explorer 8 throws an error on the `.slice()` method here:
+Using the `commonAncestor()` function, isoSelective automatically finds the parent element of your `linkSelector` elements. However, Internet Explorer 8 throws an error on the `.slice()` method here:
 
 ```javascript
 parents[i] = parents[i].slice(parents[i].length - minlen);
