@@ -2,7 +2,7 @@
 // created by Alexander Buddy 'Gatsby' Jones
 // http://www.gatsbyart.com
 
-// update for jQuery 1.9+ by David Simmer
+// update for jQuery 1.9+ and IE8 compatibility by David Simmer
 // http://simmerdesigns.com
 
 function commonAncestor(ident) {
@@ -16,6 +16,7 @@ function commonAncestor(ident) {
     });
 
     for (var i in parents) {
+        // NOTE: IE8 chokes on .slice() with this data
         parents[i] = parents[i].slice(parents[i].length - minlen);
     }
 
@@ -41,20 +42,21 @@ function commonAncestor(ident) {
         return this.each(function(){
             $this = $(this);// build element specific options
             var o = $.meta ? $.extend({}, opts, $this.data()): opts;// update element styles
-            $.fn.isoSelective.initializeFiltering(o.linkSelector, o.attrSelector, o.activeClass, o.preventEmpty, $this);
+            $.fn.isoSelective.initializeFiltering(o.linkSelector, o.attrSelector, o.activeClass, o.preventEmpty, o.linkParentID, $this);
         });
     };
+
     //
     // define and expose our format function
     //
      
-    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, upreventEmpty, ucontainerSelector){
+    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, upreventEmpty, uparentID, ucontainerSelector){
         var container = ucontainerSelector;
         var filterSelections = new Array();
         var totalCount = $(ulinkSelector).length;
         var thistag = $(ulinkSelector).get(0).tagName;
-        //   var parentID = uLPSelector;
-        var parentID =  commonAncestor(ulinkSelector);
+        var parentID = (uparentID == undefined) ? commonAncestor(ulinkSelector) : uparentID;
+
         for (i = 0;i < totalCount;i++){
             if ($(parentID).find(thistag).eq(i).hasClass(uactiveClass)){
                 filterSelections[i] = $(parentID).find(thistag).eq(i).attr(uattrSelector) +", ";
