@@ -42,7 +42,7 @@ function commonAncestor(ident) {
         return this.each(function(){
             $this = $(this);// build element specific options
             var o = $.meta ? $.extend({}, opts, $this.data()): opts;// update element styles
-            $.fn.isoSelective.initializeFiltering(o.linkSelector, o.attrSelector, o.activeClass, o.preventEmpty, o.linkParentID, $this);
+            $.fn.isoSelective.initializeFiltering(o.linkSelector, o.attrSelector, o.activeClass, o.preventEmpty, o.linkParentSelector, $this);
         });
     };
 
@@ -50,12 +50,12 @@ function commonAncestor(ident) {
     // define and expose our format function
     //
      
-    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, upreventEmpty, uparentID, ucontainerSelector){
+    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, upreventEmpty, uparentSelector, ucontainerSelector){
         var container = ucontainerSelector;
         var filterSelections = new Array();
         var totalCount = $(ulinkSelector).length;
         var thistag = $(ulinkSelector).get(0).tagName;
-        var parentID = (uparentID == undefined) ? commonAncestor(ulinkSelector) : uparentID;
+        var parentID = (uparentSelector == undefined) ? commonAncestor(ulinkSelector) : uparentSelector;
 
         for (i = 0;i < totalCount;i++){
             if ($(parentID).find(thistag).eq(i).hasClass(uactiveClass)){
