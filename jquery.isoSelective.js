@@ -50,12 +50,12 @@ function commonAncestor(ident) {
     // define and expose our format function
     //
      
-    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, upreventEmpty, uparentSelector, ucontainerSelector){
+    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, upreventEmpty, ulinkParentSelector, ucontainerSelector){
         var container = ucontainerSelector;
         var filterSelections = new Array();
         var totalCount = $(ulinkSelector).length;
         var thistag = $(ulinkSelector).get(0).tagName;
-        var parentID = (uparentSelector == undefined) ? commonAncestor(ulinkSelector) : uparentSelector;
+        var parentID = (ulinkParentSelector == undefined) ? commonAncestor(ulinkSelector) : ulinkParentSelector;
 
         for (i = 0;i < totalCount;i++){
             if ($(parentID).find(thistag).eq(i).hasClass(uactiveClass)){
