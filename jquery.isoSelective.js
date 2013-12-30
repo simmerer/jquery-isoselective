@@ -48,7 +48,7 @@ function commonAncestor(ident) {
     // define and expose our format function
     //
      
-    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, uPreventEmpty, ucontainerSelector){
+    $.fn.isoSelective.initializeFiltering = function(ulinkSelector, uattrSelector, uactiveClass, upreventEmpty, ucontainerSelector){
         var container = ucontainerSelector;
         var filterSelections = new Array();
         var totalCount = $(ulinkSelector).length;
@@ -110,7 +110,7 @@ function commonAncestor(ident) {
             }
             
             if (newfilterStatement == ""){
-                if (uPreventEmpty){
+                if (upreventEmpty){
                     // reset filter to show all
                     newfilterStatement = "*";
                 }
