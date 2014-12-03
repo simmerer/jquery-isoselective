@@ -38,14 +38,14 @@
             <p>Docs navigation is the demo itself.</p>
 
             <ul id="filtering" class="clearfix">
-                <li><a href="#" rel="*" class="filter">View All</a></li>
+                <li><a href="#" rel="*" class="filter toggledOn">View All</a></li>
                 <li><a href="#" rel=".requirements" class="filter">Requirements</a></li>
-                <li><a href="#" rel=".description" class="filter toggledOn">Description</a></li>
+                <li><a href="#" rel=".description" class="filter">Description</a></li>
                 <li><a href="#" rel=".usage" class="filter">Usage</a></li>
                 <li><a href="#" rel=".samplecode" class="filter">Sample Code</a></li>
             </ul>
 
-            <div id="container" class="clearfix">
+            <div id="isoselective-container" class="clearfix">
 
                 <h2 id="requirements">Requirements</h2>
 
@@ -152,7 +152,7 @@
 <script src="http://isotope.metafizzy.co/v1/jquery.isotope.min.js"></script>
 <script src="https://raw.github.com/simmerdesign/jquery-isoselective/master/jquery.isoSelective.js"></script>
 <script>
-    var container = $('#container');
+    var container = $('#isoselective-container');
 
     $(function () {
         container.isotope({
@@ -165,7 +165,6 @@
             linkSelector: '.filter',
             attrSelector: 'rel',
             activeClass: 'toggledOn'
-
         });
     });
 </script>
