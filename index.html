@@ -31,175 +31,153 @@
         <hr>
 
         <section id="main_content">
-          <h1>
-<a id="isoselective" class="anchor" href="#isoselective" aria-hidden="true"><span class="octicon octicon-link"></span></a>isoSelective</h1>
+          <h1 id="isoselective">isoSelective</h1>
 
-<p>A jQuery Isotope Plugin originally written by Alexander Gatsby.</p>
+            <p>A jQuery Isotope Plugin originally written by Alexander 'Gatsby' Jones.</p>
 
-<p>Docs navigation is the demo itself.</p>
+            <p>Docs navigation is the demo itself.</p>
 
-<ul>
-<li>  <a href="#all">View All</a>
-</li>
-<li>  <a href="#downloads">Downloads</a>
-</li>
-<li>  <a href="#requirements">Requirements</a>
-</li>
-<li>  <a href="#description">Description</a>
-</li>
-<li>  <a href="#usage">Usage</a>
-</li>
-<li>  <a href="#sample">Sample Code</a>
-</li>
+            <ul id="filtering" class="clearfix">
+                <li><a href="#" rel="*" class="filter">View All</a></li>
+                <li><a href="#" rel=".requirements" class="filter">Requirements</a></li>
+                <li><a href="#" rel=".description" class="filter toggledOn">Description</a></li>
+                <li><a href="#" rel=".usage" class="filter">Usage</a></li>
+                <li><a href="#" rel=".samplecode" class="filter">Sample Code</a></li>
+            </ul>
+
+            <div id="container">
+
+                <h2 id="requirements">Requirements</h2>
+
+                <ul>
+                    <li><a href="http://jquery.com/">jQuery</a></li>
+                    <li><a href="http://isotope.metafizzy.co/v1/">Isotope v.1</a></li>
+                </ul>
+
+                <h2 id="description">Description</h2>
+
+                <p>isoSelective is a plugin written specifically to extend the functionality of jQuery Isotope. I'm sure when <a href="http://desandro.com/">David</a> / <a href="http://metafizzy.co/">Metafizzy</a> created <a href="http://isotope.metafizzy.co/v1/">Isotope</a>, he wanted to keep the codebase as light as possible, while still providing a huge chunk of robust functionality.</p>
+
+                <p>By default,<a href="http://isotope.metafizzy.co/v1/">Isotope</a> has a powerful and intelligent filtering system. <a href="https://github.com/simmerdesign/jquery-isoselective">isoSelective</a> attempts to expand on the wonderful foundation, by providing a small jQuery plugin for more advanced filtering.</p>
+
+                <h3 id="what-does-isoselective-do">What does isoSelective do?</h3>
+
+                <p>Simply put: <a href="https://github.com/simmerdesign/jquery-isoselective">isoSelective</a> transforms your filtering links into a dynamic system allowing for on-the-fly creation of new filtering strings, which allow any item to be toggled on / off.</p>
+
+                <p>Imagine the following: You have a category of pictures you want users to be able to filter by category. You have the categories ‘Black and White’, ‘Last Month’, and lastly ‘Portraits’. </p>
+
+                <p>Using the default <a href="http://isotope.metafizzy.co/v1/">Isotope</a> filtering system, it’s easy to setup links for each category that will show it, and hide the others. But what if you wanted users to be able to view BOTH ‘Last Month’ and ‘Portraits’ for example. You’d have to add another filter containing the filters of both the ‘Last Month’ AND the ‘Portraits’ links.</p>
+
+                <p>Adding one link is no big deal. But let’s expand. Imagine you had 10 categories of photos, and wanted any category to be shown with any others the user wants. This would require, using the default <a href="http://isotope.metafizzy.co/v1/">Isotope</a> system, over 1000 filter links.</p>
+
+                <p>Using <a href="https://github.com/simmerdesign/jquery-isoselective">isoSelective</a> bypasses this tedious restriction, and creates a setup where each filter can be clicked to turn it on, and clicked again to turn off. In the example, the original 10 links would be all that is needed. If a user wanted to view two categories, they would simply toggle the two they wished to see on, and toggle the others off. Alternatively, they could toggle an ‘All’ filter link, and then toggle on the two categories.</p>
+
+
+                <h2 id="usage">Usage</h2>
+
+                <p>Using <a href="https://github.com/simmerdesign/jquery-isoselective">isoSelective</a> is easy. Following your call to create the Isotope layout, you add a call to isoSelective. This call requires 3 parameters. </p>
+
+                <pre>
+                $container.isoSelective({
+                    linkSelector:'.filter',
+                    attrSelector:'rel',
+                    activeClass:'selected'
+                });
+                </pre>
+
+                <h3 id="linkselector">linkSelector</h3>
+
+                <p>This is the selector for your filter links. Default: '.filter' -  Example: linkSelector: '.filter' would tell isoSelective that every element with a class of 'filter' is used for filtering. </p>
+
+                <h3 id="attrselector">attrSelector</h3>
+
+                <p>This is used to specify the selection attribute. You can use pretty much any nonsense attribute you want. Default: 'rel' - Example: attrSelector: 'rel' would tell isoSelective to look for the value in the 'rel' attribute.</p>
+
+                <h3 id="activeclass">activeClass</h3>
+
+                <p>This is the class you used and want applied to elements that are toggled 'On.' If you are not filtering anything before you make your call to isoSelective, your original filter links should all be in the on state, and have this class. If you are filtering before calling isoSelective to process links, then you should give the items shown's corresponding filter links this value in your xhtml. Default: 'selected' - Example: activeClass: 'selected' tells isoSelective that any filter links with the class 'selected' are on, those without are off, and to add the class or remove it when the element is turned on or off.</p>
+
+                <h2 id="sample-code">Sample Code:</h2>
+
+                <pre>
+<ul id="filters" class="clearfix">
+    <li>
+        <a href="#filter" rel="*" class="selected">all</a>
+    </li>
+    <li>
+        <a href="#filter" rel=".blue">blue</a>
+    </li>
+    <li>
+        <a href="#filter" rel=".green">green</a>
+    </li>
+    <li>
+        <a href="#filter" rel=".red">red</a>
+    </li>
 </ul>
 
-<h2>
-<a id="downloads" class="anchor" href="#downloads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloads:</h2>
 
-<ul>
-<li>
-<a href="js/jquery.isoSelective.min.js">jquery.isoSelective.min.js</a> (2.2kb)</li>
-<li>
-<a href="js/jquery.isoSelective.js">jquery.isoSelective.js</a> (3.9kb)</li>
-</ul>
+<div id="container" class="clearfix">
 
-<h2>
-<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements:</h2>
-
-<ul>
-<li><a href="http://jquery.com/">jQuery</a></li>
-<li><a href="http://isotope.metafizzy.co/v1/">Isotope v.1</a></li>
-</ul>
-
-<h2>
-<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description:</h2>
-
-<p>isoSelective is a plugin written specifically to extend the functionality of jQuery Isotope. I'm sure when <a href="http://desandro.com/">David</a> / <a href="http://metafizzy.co/">Metafizzy</a> created <a href="http://isotope.metafizzy.co/v1/">Isotope</a>, he wanted to keep the codebase as light as possible, while still providing a huge chunk of robust functionality.</p>
-
-<p>By default,<a href="http://isotope.metafizzy.co/v1/">Isotope</a> has a powerful and intelligent filtering system. <a href="https://github.com/simmerdesign/jquery-isoselective">isoSelective</a> attempts to expand on the wonderful foundation, by providing a small jQuery plugin for more advanced filtering.</p>
-
-<h3>
-<a id="what-does-isoselective-do" class="anchor" href="#what-does-isoselective-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does isoSelective do?:</h3>
-
-<p>Simply put: <a href="https://github.com/simmerdesign/jquery-isoselective">isoSelective</a> transforms your filtering links into a dynamic system allowing for on-the-fly creation of new filtering strings, which allow any item to be toggled on / off.</p>
-
-<p>Imagine the following: You have a category of pictures you want users to be able to filter by category. You have the categories ‘Black and White’, ‘Last Month’, and lastly ‘Portraits’. </p>
-
-<p>Using the default <a href="http://isotope.metafizzy.co/v1/">Isotope</a> filtering system, it’s easy to setup links for each category that will show it, and hide the others. But what if you wanted users to be able to view BOTH ‘Last Month’ and ‘Portraits’ for example. You’d have to add another filter containing the filters of both the ‘Last Month’ AND the ‘Portraits’ links.</p>
-
-<p>Adding one link is no big deal. But let’s expand. Imagine you had 10 categories of photos, and wanted any category to be shown with any others the user wants. This would require, using the default <a href="http://isotope.metafizzy.co/v1/">Isotope</a> system, over 1000 filter links.</p>
-
-<p>Using <a href="https://github.com/simmerdesign/jquery-isoselective">isoSelective</a> bypasses this tedious restriction, and creates a setup where each filter can be clicked to turn it on, and clicked again to turn off. In the example, the original 10 links would be all that is needed. If a user wanted to view two categories, they would simply toggle the two they wished to see on, and toggle the others off. Alternatively, they could toggle an ‘All’ filter link, and then toggle on the two categories.</p>
-
-<h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage:</h2>
-
-<p>Using <a href="https://github.com/simmerdesign/jquery-isoselective">isoSelective</a> is easy. Following your call to create the Isotope layout, you add a call to isoSelective. This call requires 3 parameters. </p>
-
-<pre>
-$container.isoSelective({
-    linkSelector:'.filter',
-    attrSelector:'rel',
-    activeClass:'selected'
-});
-</pre>
-
-<h3>
-<a id="linkselector" class="anchor" href="#linkselector" aria-hidden="true"><span class="octicon octicon-link"></span></a>linkSelector</h3>
-
-<p>This is the selector for your filter links. Default: '.filter' -  Example: linkSelector: '.filter' would tell isoSelective that every element with a class of 'filter' is used for filtering. </p>
-
-<h3>
-<a id="attrselector" class="anchor" href="#attrselector" aria-hidden="true"><span class="octicon octicon-link"></span></a>attrSelector</h3>
-
-<p>This is used to specify the selection attribute. You can use pretty much any nonsense attribute you want. Default: 'rel' - Example: attrSelector: 'rel' would tell isoSelective to look for the value in the 'rel' attribute.</p>
-
-<h3>
-<a id="activeclass" class="anchor" href="#activeclass" aria-hidden="true"><span class="octicon octicon-link"></span></a>activeClass</h3>
-
-<p>This is the class you used and want applied to elements that are toggled 'On.' If you are not filtering anything before you make your call to isoSelective, your original filter links should all be in the on state, and have this class. If you are filtering before calling isoSelective to process links, then you should give the items shown's corresponding filter links this value in your xhtml. Default: 'selected' - Example: activeClass: 'selected' tells isoSelective that any filter links with the class 'selected' are on, those without are off, and to add the class or remove it when the element is turned on or off.</p>
-
-<h2>
-<a id="sample-code" class="anchor" href="#sample-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h2>
-
-<p>`</p>
-
-<ul>
-<li>  <a href="#filter">all</a>
-</li>
-<li>  <a href="#filter">blue</a>
-</li>
-<li>  <a href="#filter">green</a>
-</li>
-<li>  <a href="#filter">red</a>
-</li>
-</ul>
-
-<div id="container">
-
-    <div>
-
-Red and Blue Element
-
+    <div class="element red blue">
+        Red and Blue Element
     </div>
 
-    <div>
-
-Red Element
-
+    <div class="element red">
+        Red Element
     </div>
 
-    <div>
-
-Red and Green Element
-
+    <div class="element red green">
+        Red and Green Element
     </div>
 
-    <div>
-
-Green Element
-
+    <div class="element green">
+        Green Element
     </div>
 
-    <div>
-
-Blue and Green Element
-
+    <div class="element green blue">
+        Blue and Green Element
     </div>
 
-    <div>
-
-Blue Element
-
+    <div class="element blue">
+        Blue Element
     </div>
 
 </div>
+                </pre>
+
+                </div><!-- #container -->
 
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="http://isotope.metafizzy.co/v1/jquery.isotope.min.js"></script>
+<script src="https://raw.github.com/simmerdesign/jquery-isoselective/master/jquery.isoSelective.js"></script>
+<script>
+    var container = $('#container');
 
+    $(function () {
+        container.isotope({
+            itemSelector : '.element',
+            layoutMode: 'straightDown',
+            filter: '.description'
+        });
 
+        container.isoSelective({
+            linkSelector: '.filter',
+            attrSelector: 'rel',
+            activeClass: 'toggledOn'
 
+        });
+    });
+</script>
 
-
-
-
-<p>`</p>
-
-
-
-
-
-
-
-
-
-<p>isoSelective was created by Alexander 'Gatsby' Jones, whose site now appears to have fallen down the memory hole: <a href="http://www.gatsbyart.com/">http://www.gatsbyart.com/</a>
-Isotope was created by <a href="http://desandro.com/">David DeSandro</a> / <a href="http://metafizzy.co/">Metafizzy</a>.</p>
-        </section>
 
         <footer>
-          Jquery-isoselective is maintained by <a href="https://github.com/simmerdesign">simmerdesign</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+            <p>isoSelective was created by Alexander 'Gatsby' Jones, whose site now appears to have fallen down the memory hole: <a href="http://www.gatsbyart.com/">http://www.gatsbyart.com/</a></p>
+
+            <p>Isotope was created by <a href="http://desandro.com/">David DeSandro</a> / <a href="http://metafizzy.co/">Metafizzy</a>.</p>
+
+            <p>Jquery-isoselective is maintained by <a href="https://github.com/simmerdesign">simmerdesign</a><br>
+            This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </footer>
 
         
