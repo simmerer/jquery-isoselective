@@ -63,7 +63,7 @@ Download the updated isoSelective plugin here:
 Usage
 -----
 
-Complete documentation for using isoSelective (which doubles as an isoSelective demo) is ~~still available here: http://www.gatsbyart.com/plugins/isoSelective/~~ no longer available online. I didn't grab it before it was taken down either.
+Complete documentation for using isoSelective (which doubles as an isoSelective demo) *is* ~~still available here: http://www.gatsbyart.com/plugins/isoSelective/~~ *no longer available online*. I didn't grab it before it was taken down either.
 
 The basic isotope setup is something like this:
 ```javascript
