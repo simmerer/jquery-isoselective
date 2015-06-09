@@ -7,9 +7,9 @@ An update to Gatsby's isoSelective isotope plugin for jQuery 1.9+ compatibility.
 Why an update?
 --------------
 
-[David DeSandro](http://desandro.com)'s lovely [isotope](http://isotope.metafizzy.co) does the job for most filtering and sorting applications, but sometimes you need to **combine filter selections** or **toggle filters**.
+[David DeSandro](http://desandro.com)'s lovely [isotope v1](http://isotope.metafizzy.co/v1/) does the job for most filtering and sorting applications, but sometimes you need to **combine filter selections** or **toggle filters**.
 
-[Alexander 'Gatsby' Jones](http://gatsbyart.com) smartly came up with [isoSelective](http://www.gatsbyart.com/plugins/isoSelective/), which accomplishes exactly that.
+Alexander 'Gatsby' Jones (gatsbyart.com - site no longer online) smartly came up with isoSelective, which accomplishes exactly that.
 
 However, isoSelective's last release still relied on jQuery's `.live()` method, which was deprecated as of jQuery 1.7 and removed altogether in jQuery 1.9. If you're running jQuery 1.9 or newer, isoSelective won't work for you.
 
@@ -96,3 +96,9 @@ $container.isoSelective({
     preventEmpty: true
 });
 ```
+
+
+What about Isotope v2? Is this compatible?
+------------------------------------------
+
+Sorry, isoSelective is only compatible with [Isotope v1](http://isotope.metafizzy.co/v1/) for now. If you'd like to take on porting isoSelective to [Isotope v2](http://isotope.metafizzy.co/), you'll probably beat me to it.
