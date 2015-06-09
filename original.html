@@ -1,0 +1,203 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>GatsbyArt: isoSelective (a jQuery Isotope Plugin)</title>
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+
+</head>
+
+<body class="demo ">
+<p id="demo-nav">GatsbyArt » isoSelective</p>
+  
+<section id="copy">
+  <h1 class="plugintitle">isoSelective</h1>
+  <p class="intro">jQuery Isotope Plugin by Gatsby<br />
+  Docs navigation is the demo itself.</p>
+  
+  <ul id="filtering" class="clearfix">
+    <li><a href="#" rel="*" class="filter">View All</a></li>
+  	<li><a href="#" rel=".downloads" class="filter">Downloads</a></li>
+    <li><a href="#" rel=".requirements" class="filter">Requirements</a></li>
+    <li><a href="#" rel=".description" class="filter toggledOn">Description</a></li>
+    <li><a href="#" rel=".usage" class="filter">Usage</a></li>
+    <li><a href="#" rel=".samplecode" class="filter">Sample Code</a></li>
+  </ul>
+  <div class="clear"></div>
+</section>
+
+<div id="container" class="clearfix">
+  <div class="element downloads">
+    <div class="innershell">
+      <h5>Downloads:</h5>
+      <p>
+        <a href="js/jquery.isoSelective.min.js">jquery.isoSelective.min.js</a> (2.2kb)<br />
+        <a href="js/jquery.isoSelective.js">jquery.isoSelective.js</a> (3.9kb)<br />
+      </p>
+      </div>
+      </div>
+      <div class="element requirements">
+      <div class="innershell">
+      <h5>Requirements:</h5>
+      <p>
+        + <a href="http://jquery.com/">jQuery</a><br />
+        + <a href="http://isotope.metafizzy.co/v1">Isotope</a></p>
+        </div>
+      </div>
+      <div class="element description">
+      <div class="innershell">
+      <h5>Description:</h5>
+      
+      <p><a href="/web/20130913090630/http://www.gatsbyart.com/plugins/isoSelective/" class="isoselective">isoSelective</a> is a plugin written specifically to extend the functionality of jQuery Isotope. I'm sure when <a href="/web/20130913090630/http://desandro.com/">David</a> / <a href="/web/20130913090630/http://metafizzy.co/">Metafizzy</a> created <a href="/web/20130913090630/http://isotope.metafizzy.co/">Isotope</a>, he wanted to keep the codebase as light as possible, while still providing a huge chunk of robust functionality.</p>
+      <p>By default,<a href="/web/20130913090630/http://isotope.metafizzy.co/">Isotope</a> has a powerful and intelligent filtering system. <a href="/web/20130913090630/http://www.gatsbyart.com/plugins/isoSelective/" class="isoselective">isoSelective</a> attempts to expand on the wonderful foundation, by providing a small jQuery plugin for more advanced filtering.</p>
+      <h5>What does isoSelective do?:</h5>
+      <p style="font-weight:bold;">Simply put: <a href="/web/20130913090630/http://www.gatsbyart.com/plugins/isoSelective/" class="isoselective">isoSelective</a> transforms your filtering links into a dynamic system allowing for on-the-fly creation of new filtering strings, which allow any item to be toggled on / off.</p>
+      <p>Imagine the following: You have a category of pictures you want users to be able to filter by category. You have the categories ‘Black and White’, ‘Last Month’, and lastly ‘Portraits’. </p>
+      <p>Using the default <a href="/web/20130913090630/http://isotope.metafizzy.co/">Isotope</a> filtering system, it’s easy to setup links for each category that will show it, and hide the others. But what if you wanted users to be able to view BOTH ‘Last Month’ and ‘Portraits’ for example. You’d have to add another filter containing the filters of both the ‘Last Month’ AND the ‘Portraits’ links.</p>
+      <p>Adding one link is no big deal. But let’s expand. Imagine you had 10 categories of photos, and wanted any category to be shown with any others the user wants. This would require, using the default <a href="/web/20130913090630/http://isotope.metafizzy.co/">Isotope</a> system, over 1000 filter links.</p>
+      <p>Using <a href="/web/20130913090630/http://www.gatsbyart.com/plugins/isoSelective/" class="isoselective">isoSelective</a> bypasses this tedious restriction, and creates a setup where each filter can be clicked to turn it on, and clicked again to turn off. In the example, the original 10 links would be all that is needed. If a user wanted to view two categories, they would simply toggle the two they wished to see on, and toggle the others off. Alternatively, they could toggle an ‘All’ filter link, and then toggle on the two categories.<br />
+      </p>
+      </div>
+      </div>
+      <div class="element usage">
+      <div class="innershell">
+      <h5>Usage:</h5>
+      <p>Using <a href="/web/20130913090630/http://www.gatsbyart.com/plugins/isoSelective/" class="isoselective">isoSelective</a> is easy.Following your call to create the Isotope layout, you add a call to isoSelective. This call requires 3 parameters. <br /></p>
+       <p style="color:#cae49c; line-height:14px; font-size:12px; font-family:Arial, Helvetica, sans-serif;"><br />
+ &nbsp;$container.isoSelective({
+<br>	&nbsp;&nbsp;	linkSelector:&nbsp;'.filter',
+<br>	&nbsp;&nbsp;	attrSelector:&nbsp;'rel',
+<br>	&nbsp;&nbsp;	activeClass:&nbsp;'selected'
+<br>	&nbsp;});
+</p>
+<p><br />
+<a href="#">linkSelector</a>: This is the selector for your filter links. Default: '.filter' -  Example: linkSelector: '.filter' would tell isoSelective that every element with a class of 'filter' is used for filtering. <br /><br /><a href="#">attrSelector</a>: This is used to specify the selection attribute. You can use pretty much any nonsense attribute you want. Default: 'rel' - Example: attrSelector: 'rel' would tell isoSelective to look for the value in the 'rel' attribute.<br /><br />
+      <a href="#">activeClass</a>: This is the class you used and want applied to elements that are toggled 'On.' If you are not filtering anything before you make your call to isoSelective, your original filter links should all be in the on state, and have this class. If you are filtering before calling isoSelective to process links, then you should give the items shown's corresponding filter links this value in your xhtml. Default: 'selected' - Example: activeClass: 'selected' tells isoSelective that any filter links with the class 'selected' are on, those without are off, and to add the class or remove it when the element is turned on or off.</p>
+
+
+      </div>
+      </div>
+      <div class="element samplecode">
+      <div class="innershell">
+    <h5>Sample Code:</h5>
+    <p style="color:#cae49c; line-height:14px; font-size:12px; font-family:Arial, Helvetica, sans-serif;">
+&lt;ul&nbsp;id=&quot;filters&quot;&nbsp;class=&quot;clearfix&quot;&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;#filter&quot;&nbsp;rel=&quot;*&quot;&nbsp;class=&quot;selected&quot;&gt;all&lt;/a&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;#filter&quot;&nbsp;rel=&quot;.blue&quot;&gt;blue&lt;/a&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;#filter&quot;&nbsp;rel=&quot;.green&quot;&gt;green&lt;/a&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;#filter&quot;&nbsp;rel=&quot;.red&quot;&gt;red&lt;/a&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;
+<br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;
+<br>&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;container&quot;&nbsp;class=&quot;clearfix&quot;&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;element&nbsp;red&nbsp;blue&quot;&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Red&nbsp;and&nbsp;Blue&nbsp;Element
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;element&nbsp;red&quot;&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Red&nbsp;Element
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;element&nbsp;red&nbsp;green&quot;&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Red&nbsp;and&nbsp;Green&nbsp;Element
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;element&nbsp;green&quot;&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Green&nbsp;Element
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;element&nbsp;blue&nbsp;green&quot;&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blue&nbsp;and&nbsp;Green&nbsp;Element
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;element&nbsp;blue&quot;&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blue&nbsp;Element
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+<br>&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+<br>
+<br>&nbsp;&lt;script&nbsp;src=&quot;js/jquery-1.4.4.min.js&quot;&gt;&lt;/script&gt;
+<br>&nbsp;&lt;script&nbsp;src=&quot;js/jquery.isotope.min.js&quot;&gt;&lt;/script&gt;
+<br>&nbsp;&lt;script&nbsp;src=&quot;js/jquery.isoSelective.min.js&quot;&gt;&lt;/script&gt;
+<br>&nbsp;&lt;script&gt;
+<br>&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;$container&nbsp;=&nbsp;$('#container');
+<br>
+<br>
+<br>
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;$(function(){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$container.isotope({
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;itemSelector&nbsp;:&nbsp;'.element'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;
+<br>&nbsp;&nbsp;$container.isoSelective({
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linkSelector:&nbsp;'#filters&nbsp;a',&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;this&nbsp;is&nbsp;the&nbsp;filter&nbsp;link&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrSelector:&nbsp;'rel',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;attribute&nbsp;containing&nbsp;the&nbsp;filter
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;activeClass:&nbsp;'selected'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;class&nbsp;to&nbsp;add&nbsp;to&nbsp;selected
+<br>&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;
+<br>&nbsp;&lt;/script&gt;
+
+</div>
+</div>
+  
+  </div>
+
+
+  
+<script src="js/jquery-1.4.4.min.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
+<script src="js/jquery.isoSelective.js"></script>
+<script>
+  
+    var $container = $('#container');
+
+
+
+
+    $(function(){
+      $container.isotope({
+        itemSelector : '.element',
+		layoutMode: 'straightDown',
+		filter: '.description'
+      });
+	  
+	  $container.isoSelective({
+	  	linkSelector: '.filter',
+		attrSelector: 'rel',
+		activeClass: 'toggledOn'
+	  
+	  });
+      
+    });
+  </script>
+
+  
+
+  
+  
+<div class="footer">
+    isoSelective was created by <a href="/web/20130913090630/http://www.gatsbyart.com/">Alexander 'Gatsby' Jones</a>.
+    Isotope was created by <a href="/web/20130913090630/http://desandro.com/">David DeSandro</a> / <a href="/web/20130913090630/http://metafizzy.co/">Metafizzy</a>.<br />
+    This page design / strucutre is mostly a variation of <a href="/web/20130913090630/http://isotope.metafizzy.co/">Isotope's Filter page</a>.<br />
+ </div>
+
+
+</body>
+</html>
